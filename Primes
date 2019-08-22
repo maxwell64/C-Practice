@@ -1,4 +1,4 @@
-//Finds all the prime numbers up to a given value and adds them to a set (WIP)
+//Finds all the prime numbers up to a given value and prints them from a list (WIP)
 
 #include <iostream>
 #include <math.h>
