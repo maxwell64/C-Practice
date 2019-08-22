@@ -1,8 +1,8 @@
 //Finds all the prime numbers up to a given value and adds them to a set (WIP)
 
 #include <iostream>
-#include <Windows.h>
 #include <math.h>
+#include <list>
 using namespace std;
 
 int maximum;
@@ -13,14 +13,13 @@ bool isPrime(int i)
 	{
 		return true;
 	}
-	else if (i % 2 == 0)
+	if (i % 2 == 0)
 	{
 		return false;
 	}
 	int j;
-	for (j = 3; j < int(sqrt(i)); j += 2)
+	for (j = 3; j <= int(sqrt(i)); j += 2)
 	{
-		cout << j;
 		if (isPrime(j) == true)
 		{
 			if (i % j == 0)
@@ -32,21 +31,26 @@ bool isPrime(int i)
 	return true;
 }
 
-int listPrimes(int i)
+void listPrimes(int i)
 {
 	int j;
-	for (j = 2;j < i;j ++)
+  list<int> l;
+	for (j = 2;j <= i;j ++)
 	{
 		if (isPrime(j) == true)
 		{
-			cout << j;
+			l.push_back(j);
 		}
 	}
+  for (int i : l)
+  {
+    cout << i << endl;
+  }
 }
 
 int main()
 {
 	cout << "Enter the maximum: ";
 	cin >> maximum;
-	cout << isPrime(maximum);
+	listPrimes(maximum);
 }
