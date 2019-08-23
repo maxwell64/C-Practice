@@ -13,7 +13,9 @@ void coinFlip(int n)
   int tails = 0;
   while (i < n)
   {
-    int result = rand() % 2;
+    default_random_engine flip;
+    uniform_int_distribution<int> coin(0,1);
+    int result = coin(flip);
     if (result == 1)
     {
       heads ++;
